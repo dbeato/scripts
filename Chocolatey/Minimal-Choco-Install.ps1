@@ -1,0 +1,1 @@
+choco install adobereader adobeair googlechrome 7zip.install jre8 firefox citrix-receiver  -y

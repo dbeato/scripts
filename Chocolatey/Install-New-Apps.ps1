@@ -1,0 +1,1 @@
+choco install adobereader adobeair googlechrome 7zip.install jre8 firefox citrix-receiver vscode vlc git.install putty sysinternals winscp sql-server-management-studio wiztree -y

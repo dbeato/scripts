@@ -1,0 +1,4 @@
+w32tm /config /manualpeerlist:"0.us.pool.ntp.org,0x1 1.us.pool.ntp.org,0x1 2.us.pool.ntp.org,0x1 3.us.pool.ntp.org,0x1"
+0.us.pool.ntp.org,0x9 1.us.pool.ntp.org,0x9 2.us.pool.ntp.org,0x9 3.us.pool.ntp.org,0x9
+
+w32tm.exe /config /manualpeerlist:"0.us.pool.ntp.org 1.us.pool.ntp.org 2.us.pool.ntp.org" /syncfromflags:manual /reliable:YES /update

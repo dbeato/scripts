@@ -1,0 +1,9 @@
+Get a list of deleted users that are in the O365 recycle bin: 
+Get-MsolUser -ReturnDeletedUsers | FL UserPrincipalName,ObjectID 
+ 
+Delete (Remove) ALL user account from the Recycle bin (Bulk Mode): 
+Get-MsolUser -ReturnDeletedUsers | Remove-MsolUser -RemoveFromRecycleBin –Force 
+ 
+Delete One user from O365 and Recycle bin: 
+Remove-MsolUser -UserPrincipalName user@domain.com 
+Remove-MsolUser -UserPrincipalName user@domain.com -RemoveFromRecycleBin 

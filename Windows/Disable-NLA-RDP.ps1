@@ -1,0 +1,1 @@
+(Get-WmiObject -class "Win32_TSGeneralSetting" -Namespace root\cimv2\terminalservices -ComputerName "remoteServer" -Filter "TerminalName='RDP-tcp'").SetUserAuthenticationRequired(0)

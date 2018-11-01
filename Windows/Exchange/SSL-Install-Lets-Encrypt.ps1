@@ -1,0 +1,1 @@
+letsencrypt.exe --plugin manual --manualhost mail.example.com,webmail.example.com,autodiscover.example.com --validation selfhosting --centralsslstore C:\Central_SSL\ --installation iis,manual --installationsiteid 1 --script "./Scripts/PSScript.bat" --scriptparameters "./Scripts/ImportExchange.ps1 {5} IIS,SMTP,IMAP 1 "mail.example.com" C:\Central_SSL\"

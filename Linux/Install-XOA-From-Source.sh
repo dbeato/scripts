@@ -14,4 +14,10 @@ cd packages/xo-server
 cp sample.config.yaml .xo-server.yaml
 #Edit the .xo-server.yaml and enable this part for xo-web (mounts: '/': '../xo-web/dist/)
 sudo yarn start
-
+#Optional to add as a service
+sudo yarn global add forever
+sudo yarn global add forever-service
+# Be sure to edit the path below to where your install is located!
+cd /home/username/xen-orchestra/packages/xo-server/bin/
+# Change the username below to the user owning XO
+sudo forever-service install orchestra -r username -s xo-server

@@ -7,6 +7,7 @@ sudo apt-get install -y nodejs
 sudo npm install yarn -g
 sudo apt-get install build-essential redis-server libpng-dev git python-minimal libvhdi-utils lvm2
 git clone -b master http://github.com/vatesfr/xen-orchestra
+cd  xen-orchestra
 sudo yarn
 sudo yarn build
 cd packages/xo-server

@@ -9,5 +9,5 @@ Scripts Used in various environments.
 - Sonicwall - Cotains Scripts to Setup Sonicwall Mobile Connect. 
 - Spiceworks - Contains Scripts used for Spiceworks Network Monitor, Inventory and Helpdesk. 
 - Windows - Contains Scripts that I use on Windows Systems. 
-- Datoo - KB articles for Datto
+- Datto - KB articles for Datto
 - Sophos - Deployment Scripts for Sophos

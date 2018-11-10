@@ -1,0 +1,159 @@
+Thank you for posting your question.
+
+You will need to stop the Cryptographic Service before you can delete or rename the Catroot2 folder.
+
+I have included the full steps to enable you in resetting Windows Update.
+
+·         General Windows Update Troubleshooting
+
+The following outlines how to stop services pertaining to Windows Update, rename system folders, register related DLL files, and then restart the previously mentioned services. This troubleshooting generally applies to all Windows Update related issues.
+
+ 
+
+Stopping services pertaining to Windows Update
+
+1.     Click Start, click All Programs, click Accessories, right-click Command Prompt, and select Run as Administrator.
+
+2.     If you receive a notification from User Account Control simply click Continue.
+
+3.     At the command prompt, type the following, commands and then press ENTER after each command.
+
+        net stop wuauserv
+        net stop bits
+
+        net stop cryptsvc
+
+4.     Please do not close the Command Prompt window.
+
+ 
+
+Renaming folders pertaining to Windows Update
+
+1.     At the command prompt, type the following commands, and then press Enter after each command:
+
+2.     ren %systemroot%\System32\Catroot2 Catroot2.old
+
+3.     ren %systemroot%\SoftwareDistribution SoftwareDistribution.old
+
+4.     Please do not close the Command Prompt window.
+
+ 
+
+Registering DLL’s pertaining to Windows Update
+
+1.     Please copy and paste the following text into a new Notepad document, and save the file as WindowsUpdate.BAT
+
+2.     If saved correctly the icon will change from a Notepad file to BAT file which has two blue cogs as its icon.
+
+            -or-
+
+3.     You can manually type each command at the command prompt:
+
+regsvr32 c:\windows\system32\vbscript.dll /s
+
+regsvr32 c:\windows\system32\mshtml.dll /s
+
+regsvr32 c:\windows\system32\msjava.dll /s
+
+regsvr32 c:\windows\system32\jscript.dll /s
+
+regsvr32 c:\windows\system32\msxml.dll /s
+
+regsvr32 c:\windows\system32\actxprxy.dll /s
+
+regsvr32 c:\windows\system32\shdocvw.dll /s
+
+regsvr32 wuapi.dll /s
+
+regsvr32 wuaueng1.dll /s
+
+regsvr32 wuaueng.dll /s
+
+regsvr32 wucltui.dll /s
+
+regsvr32 wups2.dll /s
+
+regsvr32 wups.dll /s
+
+regsvr32 wuweb.dll /s
+
+regsvr32 Softpub.dll /s
+
+regsvr32 Mssip32.dll /s
+
+regsvr32 Initpki.dll /s
+
+regsvr32 softpub.dll /s
+
+regsvr32 wintrust.dll /s
+
+regsvr32 initpki.dll /s
+
+regsvr32 dssenh.dll /s
+
+regsvr32 rsaenh.dll /s
+
+regsvr32 gpkcsp.dll /s
+
+regsvr32 sccbase.dll /s
+
+regsvr32 slbcsp.dll /s
+
+regsvr32 cryptdlg.dll /s
+
+regsvr32 Urlmon.dll /s
+
+regsvr32 Shdocvw.dll /s
+
+regsvr32 Msjava.dll /s
+
+regsvr32 Actxprxy.dll /s
+
+regsvr32 Oleaut32.dll /s
+
+regsvr32 Mshtml.dll /s
+
+regsvr32 msxml.dll /s
+
+regsvr32 msxml2.dll /s
+
+regsvr32 msxml3.dll /s
+
+regsvr32 Browseui.dll /s
+
+regsvr32 shell32.dll /s
+
+regsvr32 wuapi.dll /s
+
+regsvr32 wuaueng.dll /s
+
+regsvr32 wuaueng1.dll /s
+
+regsvr32 wucltui.dll /s
+
+regsvr32 wups.dll /s
+
+regsvr32 wuweb.dll /s
+
+regsvr32 jscript.dll /s
+
+regsvr32 atl.dll /s
+
+regsvr32 Mssip32.dll /s
+
+ Restarting services pertaining to Windows Update
+
+1.     Click Start, click All Programs, click Accessories, right-click Command Prompt, and select Run as Administrator.
+
+2.     If you receive a notification from User Account Control simply click Continue.
+
+3.     At the command prompt, type the following, commands and then press ENTER after each command.
+
+        net start wuauserv
+        net start bits
+
+        net start cryptsvc
+
+        exit
+
+4.     Now please check for updates using Windows Update to see if the issue has been resolved.

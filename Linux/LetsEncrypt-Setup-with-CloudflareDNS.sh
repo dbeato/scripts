@@ -1,3 +1,6 @@
+#This guide assumes you have an Nginx SSL Proxy as the tutorial of @JaredBusch below:
+#https://mangolassi.it/topic/16651/install-nginx-as-a-reverse-proxy-on-fedora-27
+#Now that you have his configuration see below
 #First you need to add the certbot repository
 sudo add-apt-repository ppa:certbot/certbot
 #Then you install the software-properties-common package
@@ -13,7 +16,7 @@ sudo pip install certbot-dns-cloudflare
 #Get your CloudFlare API key
 #https://support.cloudflare.com/hc/en-us/articles/200167836-Where-do-I-find-my-Cloudflare-API-key-
 #Then setup a secret file with your key on whichever path you want, I chose the /root/.secrets folder,
-sudo mkdir /root/.secrest
+sudo mkdir /root/.secrets
 sudo chmod 0700 /root/.secrets/
 sudo touch /root/.secrets/cloudflare.cfg
 sudo chmod 0400 /root/.secrets/cloudflare.cfg

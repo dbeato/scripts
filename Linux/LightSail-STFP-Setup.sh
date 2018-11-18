@@ -14,7 +14,7 @@ AllowTcpForwarding no
 X11Forwarding no
 
 #Restart SSH Service
-sudo service ssh Restart
+sudo service ssh restart
 
 #Change Home folder owner and bind the Apache/Ngnix Directory
 chown root /home/username

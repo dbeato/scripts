@@ -1,0 +1,109 @@
+
+1- Do a Fulle Backup of your Server
+2- Backup your localconfig.xml file located in /opt/zimbra/conf/
+3-Install Zimbra 8.5.1 Upgrade
+
+wget https://files2.zimbra.com/downloads/8.5.1_GA/zcs-8.5.1_GA_3056.UBUNTU12_64.20141103151510.tgz
+tar -xvf zcs-8.5.1_GA_3056.UBUNTU12_64.20141103151510.tgz
+cd zcs-8.5.1_GA_3056.UBUNTU12_64.20141103151510
+./install.sh
+
+4-Install the Zimbramemcached and zimbra proxy roles. (Source: https://wiki.zimbra.com/wiki/Enabling_Zimbra_Proxy)
+Do you wish to upgrade? [Y] y
+Install zimbra-memcached [N] y
+Install zimbra-proxy [N] y
+
+5-Then configure Zimbra Proxy After Install
+./libexec/zmproxyconfig -e -w -o -a 8080:80:8443:443 -x https  -H `zmhostname`
+6-Set the mail proxy ports
+./libexec/zmproxyconfig -e -m -o -i 7143:143:7993:993 -p 7110:110:7995:995 -H `zmhostname`
+7-Enable COnfiguration
+/opt/zimbra/libexec/zmproxyconfig -e -m -H zimbra.domain.com
+8-Restart Mailbox Service
+zmcontrol restart
+9-Setup REverse Proxy Setup
+zmprov ms `zmhostname` zimbraMailReferMode reverse-proxied
+zmmailboxdctl restart
+
+10-Upgrade Zimbra 8.5.1 to 8.7.10 
+wget https://files.zimbra.com/downloads/8.7.10_GA/zcs-8.7.10_GA_1829.UBUNTU12_64.20170524161336.tgz
+tar -xvf zcs-8.7.10_GA_1829.UBUNTU12_64.20170524161336.tgz
+cd zcs-8.7.10_GA_1829.UBUNTU12_64.20170524161336
+11-Add Zimbra Repo
+apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 9BE6ED79
+12-Modify Source list
+ cat > /etc/apt/sources.list.d/zimbra.list << EOF
+ deb     [arch=amd64] https://repo.zimbra.com/apt/87 precise zimbra
+ deb     [arch=amd64] https://repo.zimbra.com/apt/zv1 precise zimbra
+ deb-src [arch=amd64] https://repo.zimbra.com/apt/87 precise zimbra
+ >> EOF
+13-Update Packages
+sudo apt update
+Run Upgrade
+./install.sh
+
+14- Backup your Server
+
+15-Upgrade Ubuntu 12.04 to 14.04
+sudo apt-get update
+sudo apt-get dist-upgrade
+sudo do-release-Upgrade
+
+16- Download and install the Zimbra 8.7.10 Updates for Ubuntu 14.04
+wget https://files.zimbra.com/downloads/8.7.10_GA/zcs-8.7.10_GA_1829.UBUNTU14_64.20170524161336.tgz
+tar -xvf zcs-8.7.10_GA_1829.UBUNTU14_64.20170524161336.tgz
+cd zcs-8.7.10_GA_1829.UBUNTU14_64.20170524161336
+./install.sh -s
+
+17- Then run the installer for Upgrade
+su zimbra
+ldap start
+18- Exit to Root
+19- Upgrade ZImbra from 8.7.10 to 8.7.10 for full Configuration
+./install.sh 
+20-Download and install the Zimbra 8.8.11 Update for Ubuntu 14.04
+wget https://files.zimbra.com/downloads/8.8.11_GA/zcs-8.8.11_GA_3737.UBUNTU14_64.20181207111719.tgz
+tar -xvf zcs-8.8.11_GA_3737.UBUNTU14_64.20181207111719.tgz
+cd zcs-8.8.11_GA_3737.UBUNTU14_64.20181207111719
+./install.sh 
+
+21- Backup your Server
+22- Upgrade Ubuntu 14.04 to 16.04
+sudo apt-get update
+sudo apt-get dist-upgrade
+sudo do-release-Upgrade
+
+21- Download and install the Zimbra 8.8.11 Updates for Ubuntu 16.04
+wget https://files.zimbra.com/downloads/8.8.11_GA/zcs-8.8.11_GA_3737.UBUNTU16_64.20181207111719.tgz
+tar -xvf zcs-8.8.11_GA_3737.UBUNTU16_64.20181207111719
+cd zcs-8.7.10_GA_1829.UBUNTU14_64.20170524161336
+./install.sh -s
+
+19- Copy Localconfig.xml file back to the Configuration folder
+cp /opt/zimbra/.saveconfig/localconfig.xml /opt/zimbra/conf 
+
+20- Run Upgrade from 8.8.11 binaries to update the installation
+./install.sh
+
+
+
+Important Links
+https://wiki.zimbra.com/wiki/Recovering_from_upgrade_failure
+https://wiki.ubuntu.com/Releases
+https://help.ubuntu.com/community/EOLUpgrades
+http://sgros.blogspot.com/2014/02/messing-up-zimbra-upgrade-aka-dangerous.html
+https://wiki.zimbra.com/wiki/Recovering_from_wrong_platform_upgrade
+https://wiki.zimbra.com/wiki/Enabling_Zimbra_Proxy
+https://wiki.zimbra.com/wiki/Fix_zclient.IO_ERROR_-_invoke_Connection_refused
+https://wiki.zimbra.com/wiki/Zimbra_Proxy_Manual:Advanced_Proxy_Configuration_Examples_via_CLI
+https://wiki.zimbra.com/wiki/Ubuntu_Upgrades
+https://wiki.zimbra.com/wiki/Zimbra_Collaboration_repository
+https://www.zimbra.org/download/zimbra-collaboration
+https://wiki.zimbra.com/wiki/Zimbra_Releases/8.7.0/Upgrade
+https://wiki.zimbra.com/wiki/How_to_disable_SSLv3
+
+
+
+
+
+

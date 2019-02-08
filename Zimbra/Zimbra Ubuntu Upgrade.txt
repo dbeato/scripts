@@ -1,5 +1,5 @@
 
-1- Do a Fulle Backup of your Server
+1- Do a Full Backup of your Server
 2- Backup your localconfig.xml file located in /opt/zimbra/conf/
 3-Install Zimbra 8.5.1 Upgrade
 

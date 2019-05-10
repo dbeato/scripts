@@ -1,0 +1,1 @@
+choco install choco-upgrade-all-at --params "'/TIME:16:00  /ABORTTIME:17:30'" 

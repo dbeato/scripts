@@ -1,0 +1,9 @@
+Iperf3.exe -c 127.0.0.1 -w 128k -P 3> Iperf-128K-P3-results.txt
+Iperf3.exe -c 127.0.0.1 -w 256k -P 3> Iperf-256K-P3-results.txt
+Iperf3.exe -c 127.0.0.1 -w 512k -P 3> Iperf-512K-P3-results.txt
+Iperf3.exe -c 127.0.0.1 -w 128k -P 5> Iperf-128K-P5-results.txt
+Iperf3.exe -c 127.0.0.1 -w 256k -P 5> Iperf-256K-P5-results.txt
+Iperf3.exe -c 127.0.0.1 -w 512k -P 5> Iperf-512K-P5-results.txt
+Iperf3.exe -c 127.0.0.1 -w 128k -P 7> Iperf-128K-P7-results.txt
+Iperf3.exe -c 127.0.0.1 -w 256k -P 7> Iperf-256K-P7-results.txt
+Iperf3.exe -c 127.0.0.1 -w 512k -P 7> Iperf-512K-P7-results.txt

@@ -20,3 +20,4 @@ Invoke-Command -ComputerName $Comp -ScriptBlock {
     }
 
 }
+}

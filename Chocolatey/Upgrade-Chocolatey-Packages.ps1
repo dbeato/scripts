@@ -1,23 +1,38 @@
+Import-Module ActiveDirectory
 
-$computers=Get-ADComputer -Filter * | Select-Object -ExpandProperty Name
- 
+# get today's date
+$today = Get-Date
+
+#Get today - 60 days (2 month old)
+$cutoffdate = $today.AddDays(-60)
+
+$computers= Get-ADComputer -Properties * -Filter {LastLogonDate -gt $cutoffdate} | Select-Object -ExpandProperty Name
 foreach ($comp in $computers)
 {
+ 
 Invoke-Command -ComputerName $Comp -ScriptBlock {
 
-    choco upgrade firefox chrome 7zip.install jre8  -y | Out-File -FilePath C:\Windows\Temp\choco-upgrade.txt
+    $Packages = choco list -lo -r  | % {($_.split("|"))[0]}
 
-    if ($?) {
+    foreach ($Package in $Packages) {
 
-        Write-Output "$Env:COMPUTERNAME Successful"
+        choco upgrade $Package -y | Out-File -FilePath "c:\Windows\Temp\choco-$Package.txt"
+
+        if ($LASTEXITCODE -ne '0') {
+
+           $Results = [PSCustomObject]@{
+
+                ComputerName = $Env:COMPUTERNAME
+
+                Package = $Package
+
+            }
+
+            $Results
+
+        }
 
     }
 
-    else {
-
-        Write-Output "$Env:COMPUTERNAME Failed"
-
-    }
-
-}
+}  | Select-Object ComputerName,Package | Sort-Object -Property ComputerName
 }

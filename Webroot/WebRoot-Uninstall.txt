@@ -1,0 +1,21 @@
+If you're simply trying to remove the program (and not to re-install it), can you please try the following steps in Safe Mode with Networking? 
+
+(After rebooting into SMWN) 
+1. If the Webroot icon is still present in the System Tray, right click on the icon and "Shutdown Protection" beforehand. (If this option was not available, open UI > Advanced Settings > Check "Allow SecureAnywhere to be shut down manually" and save) 
+2. Open the Command Prompt ad admin, and type in "C:\Program Files\Webroot\WRSA.exe" -uninstall 
+***(You may need to adjust the file path if you've changed the install directory)*** 
+3. Enter in the CAPTCHA puzzle. 
+4. Also run "sc delete wrsvc" to delete the service. Exit the Command Prompt once done. (If the agent was still stuck, kill the service first and then run the uninstall command again) 
+5. Remove the "WRData" folder in %ProgramData% directory (if still present). 
+6. Remove the following registry keys: 
+
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\WRkrn 
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\WRSVC 
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\wrUrlFlt 
+HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\WRSVC 
+HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\WRkrn 
+HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\SafeBoot\Network\WRkrn 
+HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\SafeBoot\Network\WRSVC 
+HKEY_LOCAL_MACHINE\SYSTEM\ControlSet002\Control\SafeBoot\Network\WRkrn 
+HKEY_LOCAL_MACHINE\SYSTEM\ControlSet002\Control\SafeBoot\Network\WRSVC 
+HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\WRData 

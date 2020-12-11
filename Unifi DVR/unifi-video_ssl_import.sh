@@ -20,7 +20,6 @@
 # systems or /$UNIFI_DIR/keystore on Debian/Ubunty systems) to a separate directory before running this
 # script. If anything goes wrong, you can restore from your backup, restart the Unifi NVR Controller service,
 # and be back online immediately.
-
 # CONFIGURATION OPTIONS
 UNIFI_HOSTNAME=dvr.domain.com
 UNIFI_SERVICE=unifi-video

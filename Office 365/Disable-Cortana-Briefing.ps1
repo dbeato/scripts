@@ -1,0 +1,1 @@
+Set-UserBriefingConfig -Identity joe@contoso.com -Enabled $false

@@ -1,0 +1,1 @@
+Get-EXORecipient -ResultSize unlimited | Where-Object {$_.EmailAddresses -match "user@domain.onmicrosoft.com"} | Format-List Name, RecipientType, emailaddresses

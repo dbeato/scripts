@@ -1,0 +1,1 @@
+﻿Remove-ItemProperty -Path "HKCU:\Software\Microsoft\Office\16.0\Outlook\AutoDiscover" -Name "ExcludeExplicitO365Endpoint"

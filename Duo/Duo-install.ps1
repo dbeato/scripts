@@ -1,0 +1,2 @@
+mkdir C:\scripts
+curl https://dl.duosecurity.com/duo-win-login-latest.exe -o C:\scripts\duo-win-login-latest.exe ;  C:\scripts\duo-win-login-latest.exe /S /V" /qn IKEY="XXXXXXXXXXXXXXX" SKEY="XXXXXXXXXXXXXXXXXXXXX" HOST="XXXXXXXXXXXXXX" AUTOPUSH="#1" FAILOPEN="#1" SMARTCARD="#0" RDPONLY="#0""

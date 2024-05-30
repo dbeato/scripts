@@ -1,0 +1,1 @@
+Get-Service -Name NLASvc  | Restart-Service -Force 

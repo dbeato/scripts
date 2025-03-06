@@ -1,8 +1,9 @@
 $folderName = "scripts"
+$Root="C:\"
 $Path="C:\"+$folderName 
 if (!(Test-Path $Path)) 
 { 
-New-Item -itemType Directory -Path enter_path -Name $FolderName 
+New-Item -itemType Directory -Path $Root -Name $FolderName 
 Write-host “Scripts Folder created.” 
 } 
 else 
@@ -18,7 +19,7 @@ Start-Sleep -Seconds 90
 msiexec /i LiongardAgent-lts.msi LIONGARDURL=server.app.liongard.com LIONGARDACCESSKEY="AccessKey" LIONGARDACCESSSECRET="Secret" LIONGARDENVIRONMENT="Environment" /qn
 
 Start-Sleep -Seconds 240
-Remove-Item '$Path\LiongardAgent-lts.msi'
+Remove-Item 'LiongardAgent-lts.msi'
 
 
 

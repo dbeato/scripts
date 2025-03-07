@@ -1,0 +1,1 @@
+Remove-Item 'C:\scripts\LiongardAgent-lts.msi'

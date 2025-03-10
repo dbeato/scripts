@@ -1,0 +1,1 @@
+Set-ItemProperty "HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" -Name SelectNetworkDetect -Value 3 -Type DWord

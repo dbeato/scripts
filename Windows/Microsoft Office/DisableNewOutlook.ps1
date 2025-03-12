@@ -1,0 +1,2 @@
+Set-ItemProperty HKLM:\SOFTWARE\Microsoft\WindowsUpdate\Orchestrator\UScheduler_Oobe -Name BlockedOobeUpdaters -Value ['"MS_Outlook"'] -Type String
+Remove-AppxProvisionedPackage -AllUsers -Online -PackageName (Get-AppxPackage Microsoft.OutlookForWindows).PackageFullName
